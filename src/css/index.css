@@ -1,0 +1,17 @@
+body {
+  background: #222222;
+
+  position: absolute;
+}
+
+
+#mainMenu {
+  background: #333333;
+  position: relative;
+
+  width: 150px;
+  height: 100%;
+
+  top: 0;
+  bottom: 0;
+}
