@@ -4,10 +4,42 @@
     <meta charset="UTF-8">
     <title>Sound Wave</title>
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/icons.css">
   </head>
   <body>
-    <div id="mainMenu">
-      
+    <div id="mainBody">
+      <div id="mainMenus">
+        <div id="navBar">
+          <div id="navBarHeader" style="height: 50px;">
+            <h3 style="position: relative; top: 15px; left: 27px;">UniFrame</h3>
+            <img id="mainMenuPopout" height="6.56" width="11.56" src="../assets/images/svgs/MenuPopout.svg" onclick="rotatePopoutButton('mainMenuPopout')">
+          </div>
+          <div id="navBarBody" style="height: 500px;">
+            <div id="navSelectedMarker"></div>
+            <button id="navHomeButton" class="selectedNavButton" onclick="selectNavButton('navHomeButton')">
+              <h3>Home</h3>
+            </button>
+            <button id="navAudioButton" onclick="selectNavButton('navAudioButton')">
+              <h3>Audio</h3>
+            </button>
+            <button id="navVideoButton" onclick="selectNavButton('navVideoButton')">
+              <h3>Video</h3>
+            </button>
+            <button id="navModulesButton" onclick="selectNavButton('navModulesButton')">
+              <h3>Modules</h3>
+            </button>
+          </div>
+          <div id="navBarFooter" style="height: 50px; text-align: center;">
+            <h4 id="appVersionFooter" style="position: relative; top: 15px;"></h4>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
+<script src="../js/index.js" defer></script>
+<script src="../js/ipcHandler.js" defer></script>
+<script src="../js/modules/soundModules.js" defer></script>
+<script src="../js/moduleHandler.js" defer></script>
+<script src="../js/animationHandler.js"></script>
+<script src="../js/backgroundRender.js"></script>

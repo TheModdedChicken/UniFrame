@@ -1,0 +1,19 @@
+{
+    "appVersion": "v10.0.0",
+    "moduleVersion": "1.0.0",
+    "name": "Bagel",
+    "author": "TheModdedChicken",
+    "icon": "",
+    "banner": "",
+    "description": "",
+    "mainFile": "/test.js",
+    "htmlScripts": [
+        "/test.js"
+    ],
+    "styleSheets": [
+        "/test.css"
+    ],
+    "htmlDocuments": [
+        "/test.html"
+    ]
+}

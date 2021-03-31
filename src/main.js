@@ -7,6 +7,8 @@ if (require('electron-squirrel-startup')) {
 }
 
 const createWindow = () => {
+  var appPath = app.getAppPath();
+  var userPath = app.getPath('userData');
   const win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -14,12 +16,31 @@ const createWindow = () => {
     resizable: false,
     maxWidth: 800,
     maxHeight: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true
+    },
+    frame: false,
+    transparent: true
   });
 
   win.loadFile(path.join(__dirname, './html/index.html'));
 
-  win.webContents.openDevTools();
+  // win.webContents.openDevTools();
   win.menuBarVisible = false;
+
+  ipcMain.handle('applicationFolder', (event) => {
+    return appPath;
+  })
+
+  ipcMain.handle('userDataFolder', (event) => {
+    return userPath;
+  })
+
+  win.webContents.on('did-finish-load', function() {
+    win.webContents.executeJavaScript("runTimeActions();");
+  });
 };
 
 app.on('ready', createWindow);

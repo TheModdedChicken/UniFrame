@@ -1,0 +1,9 @@
+#mainMenuPopout {
+    position: relative;
+    bottom: 5px;
+    left: 112px;
+
+    cursor: pointer;
+
+    transition: transform 0.3s ease;
+}
