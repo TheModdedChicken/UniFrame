@@ -1,0 +1,26 @@
+/* Styles */
+
+#audioCableName {
+    position: relative;
+
+    width: 230px;
+    height: 35px;
+
+    top: 20px;
+    left: 20px;
+    text-align: center;
+
+    background: var(--Button);
+    outline: none;
+    border: none;
+
+    border-radius: 8px;
+
+    align-self: center;
+    transition: background 0.1s ease;
+}
+
+/*
+#audioCableName:hover {
+    background: ;
+}*/

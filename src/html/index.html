@@ -2,30 +2,49 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Sound Wave</title>
+    <title>UniFrame</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/icons.css">
+    <link rel="stylesheet" href="../css/audio.css">
+    <link rel="stylesheet" href="../css/tabs.css">
   </head>
   <body>
+    <!-- Body div because electron is weird -->
     <div id="mainBody">
+      <header id="titleBar">
+        <button id="closeButton" style="border-radius: 0 10px 0 0;" onclick="titleButtonPress(this)">
+          <img src="../assets/images/pngs/close-w-10.png">
+        </button>
+        <button id="trayButton" onclick="titleButtonPress(this)">
+          <img src="../assets/images/pngs/tray-w-10.png">
+        </button>
+        <button id="minimizeButton" style="border-radius: 0 0 0 10px;" onclick="titleButtonPress(this)">
+          <img src="../assets/images/pngs/min-w-10.png">
+        </button>
+      </header>
       <div id="mainMenus">
+        <!-- Left Hand Navigation Bar -->
         <div id="navBar">
           <div id="navBarHeader" style="height: 50px;">
             <h3 style="position: relative; top: 15px; left: 27px;">UniFrame</h3>
-            <img id="mainMenuPopout" height="6.56" width="11.56" src="../assets/images/svgs/MenuPopout.svg" onclick="rotatePopoutButton('mainMenuPopout')">
+            <img id="mainMenuPopout" height="6.56" width="11.56" src="../assets/images/svgs/MenuPopout.svg" onclick="navBarContextMenuClick();">
+            <div id="navBarContextMenu">
+              <button style="background: linear-gradient(to Top Right, #7CF568, #7df5686b);">Settings</button>
+              <button style="background: linear-gradient(to Top Right, #68aaf5, #68aaf56b);">Support</button>
+            </div>
           </div>
           <div id="navBarBody" style="height: 500px;">
             <div id="navSelectedMarker"></div>
-            <button id="navHomeButton" class="selectedNavButton" onclick="selectNavButton('navHomeButton')">
+            <button id="navHomeButton" class="selectedNavButton" onclick="gotoNavLocation(this)">
               <h3>Home</h3>
             </button>
-            <button id="navAudioButton" onclick="selectNavButton('navAudioButton')">
+            <button id="navAudioButton" onclick="gotoNavLocation(this)">
               <h3>Audio</h3>
             </button>
-            <button id="navVideoButton" onclick="selectNavButton('navVideoButton')">
+            <button id="navVideoButton" onclick="gotoNavLocation(this)">
               <h3>Video</h3>
             </button>
-            <button id="navModulesButton" onclick="selectNavButton('navModulesButton')">
+            <button id="navModulesButton" onclick="gotoNavLocation(this)">
               <h3>Modules</h3>
             </button>
           </div>
@@ -33,13 +52,55 @@
             <h4 id="appVersionFooter" style="position: relative; top: 15px;"></h4>
           </div>
         </div>
+        <!-- Right hand content section -->
+        <div id="tabStorage"></div>
+        <div id="tabBar">
+          <button class="menuTab">
+            <img src="../assets/images/svgs/Home.svg" width="14.76" height="15.53" style="position: relative; right: 0.5px;">
+          </button>
+          <button class="menuTab">
+            <img src="../assets/images/svgs/Plus.svg" width="13.37" height="13.42" style="position: relative; left: 1px;">
+          </button>
+          <button class="contentTab"></button>
+          <button class="contentTab"></button>
+          <button class="contentTab"></button>
+          <button class="contentTab"></button>
+          <button class="contentTab"></button>
+          <button class="contentTab"></button>
+          <button class="contentTab"></button>
+        </div>
+        <div id="contentRegion">
+          <div id="home">
+
+          </div>
+          <div id="audio" style="visibility: hidden;">
+            <input id="audioCableName" placeholder="New Audio Cable">
+          </div>
+          <div id="video" style="visibility: hidden;">
+
+          </div>
+          <div id="modules" style="visibility: hidden;">
+
+          </div>
+        </div>
       </div>
     </div>
   </body>
 </html>
+<!-- Main Script -->
 <script src="../js/index.js" defer></script>
-<script src="../js/ipcHandler.js" defer></script>
+
+<!-- Modules -->
 <script src="../js/modules/soundModules.js" defer></script>
+
+<!-- Handlers -->
+<script src="../js/ipcHandler.js" defer></script>
 <script src="../js/moduleHandler.js" defer></script>
 <script src="../js/animationHandler.js"></script>
+<script src="../js/navigationHandler.js"></script>
+<script src="../js/audioHandler.js"></script>
+<script src="../js/navTabHandler.js"></script>
+
+<!-- Renderers -->
 <script src="../js/backgroundRender.js"></script>
+<!-- Script count go brrrrr -->

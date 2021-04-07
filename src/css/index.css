@@ -7,10 +7,17 @@
 
   --Button: #2B2B2B;
   --ButtonHover: #3D3D3D;
+  --ButtonActive: #4e4e4e;
   --ButtonSelMarker: #0085FF;
 
   --Icon: #C4C4C4;
   --BoxIcon: #B5B5B5;
+
+  --ContextMenu: #262626;
+
+  /* Values */
+  --TitleBarAdd: 50px;
+  --ContentRegionSub: 50px;
 }
 
 /* Fonts */
@@ -101,7 +108,7 @@ h5 {
 }
 
 #navBarBody button:active {
-  background: #4e4e4e;
+  background: var(--ButtonActive);
 }
 
 #navBarBody button h3 {
@@ -124,4 +131,94 @@ h5 {
   background: var(--ButtonSelMarker);
 
   transition: top 0.1s ease-out, height 0.1s ease-out;
+}
+
+#navBarContextMenu {
+  position: absolute;
+  background: var(--ContextMenu);
+
+  width: 139px;
+  height: 0px;
+
+  left: 6px;
+  top: 45px;
+
+  border-radius: 10px;
+  z-index: 100;
+
+  overflow: hidden;
+
+  transition: height 0.2s ease;
+}
+
+#navBarContextMenu button {
+  position: relative;
+  background: var(--Button);
+
+  width: 129px;
+  height: 35px;
+
+  font-weight: bold;
+
+  margin: 5px;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+}
+
+/* Content Region Styles */
+
+#titleBar {
+  position: absolute;
+  width: 650px;
+  height: var(--TitleBarAdd);
+
+  top: 0;
+  left: 150px;
+
+  border-radius: 0 10px 0 0;
+
+  -webkit-app-region: drag;
+
+  transition: height 0.2s ease;
+}
+
+#titleBar button {
+  position: relative;
+  right: 0;
+  float: right;
+
+  background: var(--Button);
+
+  border: none;
+  outline: none;
+  padding: 15px;
+  padding-right: 15px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+
+  transition: background 0.3s ease;
+
+  -webkit-app-region: no-drag;
+}
+
+#titleBar button:hover {
+  background: var(--ButtonHover);
+}
+
+#titleBar button:active {
+  background: var(--ButtonActive);
+}
+
+#contentRegion {
+  position: absolute;
+  width: 650px;
+  height: calc(100% - var(--ContentRegionSub));
+
+  bottom: 0;
+  left: 150px;
+
+  background: var(--Thirdary);
+
+  border-radius: 0 0 10px 0;
 }

@@ -1,0 +1,53 @@
+#tabBar {
+    position: absolute;
+
+    bottom: 550px;
+    left: 150px;
+
+    height: 0px;
+    width: 647px;
+
+    overflow: hidden;
+    display: flex;
+    transition: height 0.2s ease;
+}
+
+#tabBar button {
+    position: relative;
+    background: var(--Button);
+
+    border: none;
+    outline: none;
+    border-radius: 10px 10px 0 0;
+
+    margin-left: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    float: left;
+
+    visibility: inherit;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+#tabBar button:hover {
+    background: var(--ButtonHover);
+}
+#tabBar button:active {
+    background: var(--ButtonActive);
+}
+
+.menuTab {
+    height: 25px;
+    width: 28.75px;
+}
+
+.contentTab {
+    height: 25px;
+    width: 100%;
+
+    max-width: 191px;
+}
